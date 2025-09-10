@@ -1,0 +1,9 @@
+Name,Age,Height,Weight,Gender
+Alice,25.0,165.0,55.0,F
+Bob,30.0,180.0,78.0,M
+Charlie,35.0,175.0,72.0,M
+David,,170.0,,M
+Eva,40.0,,68.0,F
+Frank,28.0,178.0,80.0,M
+Grace,33.0,160.0,54.0,F
+Helen,29.0,158.0,50.0,F
