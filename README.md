@@ -1,68 +1,195 @@
-
-# CSV and JSON Data Quality Checker
+# CSV & JSON Data Quality Checker
 
 ## Overview
 
-A Python utility for validating CSV and JSON files and identifying common data quality issues before the data is used for reporting or analysis.
+CSV & JSON Data Quality Checker is a Python-based project designed to identify common data quality problems in structured datasets.
 
-The project is designed for developers, analysts and small teams who need a repeatable way to inspect incoming data without manually checking every record.
+The project aims to help data analysts, developers, and small teams validate CSV and JSON files before using them for reporting, analysis, or downstream applications.
 
 ## Business Problem
 
-Data files frequently contain missing values, duplicate records, inconsistent schemas and invalid field formats. These issues can lead to incorrect reports and unnecessary manual cleaning.
+Organisations frequently receive datasets containing:
 
-This tool aims to make data validation repeatable, transparent and easier to troubleshoot.
+- Missing or incomplete values
+- Duplicate records
+- Incorrect data types
+- Inconsistent column names
+- Unexpected schema changes
+- Invalid field formats
+
+These problems can produce inaccurate reports, disrupt data pipelines, and require time-consuming manual corrections.
+
+This project aims to automate common data validation checks and provide clear, actionable reports.
+
+## Current Project Status
+
+The repository currently contains exploratory Python notebook work and initial project documentation.
+
+The reusable validation engine, command-line interface, reporting functionality, and automated test suite are planned development tasks.
 
 ## Planned Features
 
-- Validate CSV and JSON file structures.
-- Detect missing values and duplicate records.
-- Check required columns and expected data types.
-- Support configurable validation rules.
-- Generate human-readable and machine-readable reports.
-- Provide clear error messages and exit codes.
-- Include automated tests and example datasets.
+### 1. File Validation
+- Support CSV and JSON files.
+- Detect malformed input files.
+- Validate required columns.
+- Check expected data types.
+
+### 2. Data Quality Checks
+- Identify missing values.
+- Detect duplicate records.
+- Validate field formats.
+- Check configurable validation rules.
+
+### 3. Reporting
+- Generate validation summaries.
+- Export results in JSON format.
+- Generate human-readable HTML reports.
+- Provide meaningful error messages.
+
+### 4. Command-Line Interface
+- Validate files directly from the terminal.
+- Support configurable validation options.
+- Return appropriate exit codes.
+
+### 5. Automated Testing
+- Unit tests for validation functions.
+- Integration tests for file processing.
+- Automated testing with GitHub Actions.
 
 ## Technology Stack
 
-- Python
-- Pandas
-- Pydantic
-- Pytest
-- JSON and CSV
+| Technology | Purpose |
+|------------|---------|
+| Python 3.11+ | Core application development |
+| Pandas | Data processing and validation |
+| Pydantic | Schema and input validation |
+| Typer | Command-line interface |
+| Pytest | Automated testing |
+| JSON / CSV | Supported file formats |
+| GitHub Actions | Continuous integration |
+
+## Proposed Project Structure
+
+```text
+training/
+├── src/
+│   └── data_quality/
+│       ├── __init__.py
+│       ├── cli.py
+│       ├── validators.py
+│       ├── schemas.py
+│       ├── rules.py
+│       └── reports.py
+├── tests/
+│   ├── test_validators.py
+│   ├── test_rules.py
+│   └── test_cli.py
+├── examples/
+├── README.md
+├── ROADMAP.md
+├── LICENSE
+└── pyproject.toml
+```
 
 ## Getting Started
 
-Requirements: Python 3.11 or later.
+### Prerequisites
 
-Clone the repository and create a virtual environment:
+- Python 3.11 or later
+- Git
+- pip
 
-    python -m venv .venv
+### Clone the Repository
 
-Activate the environment and install dependencies:
+```bash
+git clone https://github.com/mideade247/training.git
+cd training
+```
 
-    pip install -r requirements.txt
+### Create a Virtual Environment
 
-Run the available validation command:
+```bash
+python -m venv .venv
+```
 
-    python -m src.cli --help
+Activate it:
 
-The command above will be available once the CLI is implemented.
+**Windows:**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Linux/macOS:**
+
+```bash
+source .venv/bin/activate
+```
+
+### Install Dependencies
+
+Once the application package and dependency configuration are implemented:
+
+```bash
+pip install -e .
+```
+
+## Planned Usage
+
+The following command illustrates the intended CLI interface. It is not yet implemented.
+
+```bash
+data-quality validate examples/sample.csv
+```
+
+The tool will identify data quality issues and produce a validation report.
+
+## Development Roadmap
+
+| Phase | Task | Estimated Hours |
+|-------|------|-----------------|
+| 1 | Project restructuring and setup | 4 |
+| 2 | CSV and JSON validation engine | 7 |
+| 3 | Configurable validation rules | 7 |
+| 4 | Command-line interface | 5 |
+| 5 | Report generation | 5 |
+| 6 | Automated tests and CI | 5 |
+| 7 | Documentation | 2 |
+| **Total** | | **35 hours** |
 
 ## Testing
 
-Run automated tests using:
+Once the automated tests are implemented:
 
-    pytest
+```bash
+pytest
+```
 
-## Roadmap
+Testing will cover:
 
-See [ROADMAP.md](ROADMAP.md).
+- Valid input files
+- Missing columns
+- Duplicate records
+- Incorrect data types
+- Malformed CSV and JSON files
+- Invalid configurations
 
-## Data and Privacy
+## Security and Privacy
 
-Examples use synthetic data. Do not commit confidential files, credentials or real personal data.
+- Use synthetic datasets for testing.
+- Do not commit confidential information.
+- Do not store passwords, API keys, or access tokens.
+- Exclude sensitive files using `.gitignore`.
+
+## Future Improvements
+
+- Batch validation
+- Custom validation rule templates
+- Detailed HTML reports
+- CI/CD integration
+- Improved error reporting
 
 ## License
 
-See the LICENSE file.
+An appropriate open-source license will be added after confirming ownership and licensing rights.
