@@ -23,9 +23,9 @@ This project aims to automate common data validation checks and provide clear, a
 
 ## Current Project Status
 
-The repository currently contains exploratory Python notebook work and initial project documentation.
+The repository contains exploratory notebooks, reusable local CSV and JSON validators, application tests, and a GitHub Actions workflow for tests and linting.
 
-The reusable validation engine, command-line interface, reporting functionality, and automated test suite are planned development tasks.
+The validators check CSV headers and required columns, parse JSON, and report record counts. The command-line interface, configurable quality rules, and report exports remain planned work.
 
 ## Planned Features
 
@@ -129,11 +129,13 @@ source .venv/bin/activate
 
 ### Install Dependencies
 
-Once the application package and dependency configuration are implemented:
+The current validators use the Python standard library. Install development tools with:
 
 ```bash
-pip install -e .
+python -m pip install -r requirements-dev.txt
 ```
+
+An installable application package is still planned.
 
 ## Planned Usage
 
@@ -160,13 +162,13 @@ The tool will identify data quality issues and produce a validation report.
 
 ## Testing
 
-Once the automated tests are implemented:
+Run the existing application tests after installing the development dependencies:
 
 ```bash
-pytest
+python -m pytest -v
 ```
 
-Testing will cover:
+Existing tests cover CSV headers, required columns, BOM and quoted-field handling, JSON parsing, record counts, and missing files. Planned additional coverage includes:
 
 - Valid input files
 - Missing columns
@@ -218,7 +220,7 @@ python -m pytest -v
 Run the Python lint checks:
 
 ```bash
-ruff check src tests
+python -m ruff check src tests
 ```
 
 ### Continuous Integration
@@ -228,8 +230,7 @@ when changes are pushed or pull requests are opened.
 
 ### Development Tasks
 
-Future development is organised into bounded tasks
-with defined objectives, scope and acceptance criteria.
+The next bounded backend task is rejecting malformed CSV rows, with a 2-4 hour estimate. It will reject records with too many or too few fields and malformed quoting, while preserving valid quoted and multiline fields. Acceptance requires synthetic local-file regression tests and passing tests and lint checks. No external service is required. Malformed-row rejection is not yet implemented.
 
 Tests use synthetic data and local or mocked dependencies
 where applicable.
