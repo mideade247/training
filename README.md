@@ -23,7 +23,7 @@ This project aims to automate common data validation checks and provide clear, a
 
 ## Current Project Status
 
-The repository contains exploratory notebooks, reusable local CSV and JSON validators, application tests, and a GitHub Actions workflow for tests and linting.
+The repository contains reusable local CSV and JSON validators, application tests, and a GitHub Actions workflow for tests and linting. Unrelated learning notebooks have been removed from the current project; their original commits remain in the repository history.
 
 The validators check CSV headers and required columns, parse JSON, and report record counts. The command-line interface, configurable quality rules, and report exports remain planned work.
 
