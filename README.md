@@ -192,4 +192,44 @@ Testing will cover:
 
 ## License
 
-An appropriate open-source license will be added after confirming ownership and licensing rights.
+MIT
+
+## Testing and Code Quality
+
+The project uses Pytest for automated testing and Ruff
+for Python linting.
+
+### Running Tests
+
+Install the development dependencies:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
+Run the automated tests:
+
+```bash
+python -m pytest -v
+```
+
+### Linting
+
+Run the Python lint checks:
+
+```bash
+ruff check src tests
+```
+
+### Continuous Integration
+
+GitHub Actions runs automated tests and lint checks
+when changes are pushed or pull requests are opened.
+
+### Development Tasks
+
+Future development is organised into bounded tasks
+with defined objectives, scope and acceptance criteria.
+
+Tests use synthetic data and local or mocked dependencies
+where applicable.
